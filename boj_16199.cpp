@@ -39,7 +39,7 @@ int main()
 
     yearAge = benchmarkYear - birthYear;
 
-    cout << worldAge << "\n" << countAge << "\n" << yearAge;
+    cout << worldAge << "\n" << countAge << "\n" << yearAge << "\n";
 
     return 0;
 }
