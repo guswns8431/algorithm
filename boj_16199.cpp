@@ -16,7 +16,7 @@ int main()
         {
             worldAge = benchmarkYear - birthYear - 1;
         }
-        else
+        else if(benchmarkMonth == birthMonth)
         {
             if(benchmarkDate < birthDate)
             {
@@ -26,8 +26,12 @@ int main()
             {
                 worldAge = benchmarkYear - birthYear;
             }
-            
         }
+        else
+        {
+            worldAge = benchmarkYear - birthYear;
+        }
+        
         
     }
     else
@@ -39,7 +43,7 @@ int main()
 
     yearAge = benchmarkYear - birthYear;
 
-    cout << worldAge << "\n" << countAge << "\n" << yearAge << "\n";
+    cout << worldAge << "\n" << countAge << "\n" << yearAge;
 
     return 0;
 }
