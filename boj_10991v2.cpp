@@ -3,32 +3,29 @@
 int main()
 {
     int n;
-    int star_num;
-    int begin_star;
-    int current_star = 0;
+    int begin_star, end_star;
     bool flag = false;
 
     std::cin >> n;
 
     for (int i = 0; i < n; i++)
     {
-        star_num = i + 1;
         begin_star = n - i;
-        for (int j = 1; current_star <= star_num ; j++)
+        end_star = n + i;
+        for (int j = 1; j <= end_star; j++)
         {
             if (j >= begin_star && flag == false)
             {
                 std::cout << "*";
-                flag = !flag;
-                current_star++;
+                flag = true;
             }
             else
             {
                 std::cout << " ";
+                flag = false;
             }
         }
         std::cout << "\n";
-        current_star = 0;
         flag = false;
     }
 
