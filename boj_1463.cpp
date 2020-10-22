@@ -3,36 +3,40 @@
 int main()
 {
     int n;
-    int count = 0;
+    int dp[1000001];
+    int tmp;
 
     std::cin >> n;
 
-    while (1)
+    for (int i = 1; i <= n; i++)
     {
-        if(n == 1)
+        if (i == 1)
         {
-            break;
+            dp[i] = 0;
         }
-
-        if(n % 3 == 0)
+        else if (i == 2)
         {
-            n /= 3;
-            count++;
+            dp[i] = 1;
         }
-        else if(n % 3 != 0)
+        else if (i == 3)
         {
-            n--;
-            count++;
+            dp[i] = 1;
         }
         else
         {
-            n /= 2;
-            count++;
+            dp[i] = dp[i - 1] + 1;
+            if (i % 2 == 0)
+            {
+                dp[i] = (dp[i] > dp[i / 2]) ? dp[i / 2] + 1 : dp[i];
+            }
+            if (i % 3 == 0)
+            {
+                dp[i] = (dp[i] > dp[i / 3]) ? dp[i / 3] + 1 : dp[i];
+            }
         }
-
     }
-    
-    std::cout << count;
+
+    std::cout << dp[n];
 
     return 0;
 }
