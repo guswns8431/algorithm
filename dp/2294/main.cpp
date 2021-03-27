@@ -36,7 +36,8 @@ void solution()
 {
 	for (int i = 1; i <= n; i++)
 		for (int j = coin[i]; j <= k; j++)
-			dp[j] = std::min(dp[j], dp[j - coin[i]] + 1);
+			if (dp[j] > dp[j - coin[i]] + 1)
+				dp[j] = dp[j - coin[i]] + 1;
 }
 
 int main(void)
