@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 int n, k;
 int dp[1001][1001];
