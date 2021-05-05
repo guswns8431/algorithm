@@ -45,10 +45,7 @@ void solution()
 
 	for (int i = 0; i < 5; i++)
 		for (int j = 0; j < 5; j++)
-		{
-			str = board[i][j];
-			dfs(i, j, 1, str);
-		}
+			dfs(j, i, 1, board[i][j]);
 }
 
 void print()
