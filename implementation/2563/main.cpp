@@ -1,7 +1,7 @@
 #include <iostream>
 
 int n;
-bool paper[101][101];
+bool paper[100][100];
 
 void input_setting()
 {
@@ -23,8 +23,8 @@ void solution()
 	for (int i = 0; i < n; i++)
 	{
 		std::cin >> x >> y;
-		for (int j = x + 1; j < x + 1 + 10; j++)
-			for (int k = y + 1; k < y + 1 + 10; k++)
+		for (int j = x; j < x + 10; j++)
+			for (int k = y; k < y + 10; k++)
 				paper[k][j] = true;
 	}
 	for (int i = 0; i < 100; i++)
