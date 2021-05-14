@@ -5,7 +5,7 @@ int T;
 std::string p;
 int n;
 std::string x;
-std::deque<char> num;
+std::deque<std::string> num;
 int flag = -1;
 
 void input_setting()
@@ -20,28 +20,26 @@ void input()
 	std::cin >> T;
 }
 
-bool find_num()
+void get_num(int *index, int len)
 {
-	
+	std::string str;
+
+	str = "";
+	while (*index < len && x[*index] >= '0' && x[*index] <= '9')
+		str += x[(*index)++];
+	num.push_back(str);
+}
+
+void find_num()
+{	
 	int len = x.length();
 	for (int i = 0; i < len; i++)
 		if (x[i] >= '0' && x[i] <= '9')
-			num.push_back(x[i]);
-	if (num.empty())
-	{
-		std::cout << "error" << "\n";
-		return (false);
-	}
-	return (true);
+			get_num(&i, len);
 }
 
 void print()
 {
-	if (num.empty())
-	{
-		std::cout << "error" << "\n";
-		return ;
-	}
 	std::cout << "[";
 	while (!num.empty())
 	{
@@ -57,11 +55,12 @@ void print()
 		}
 		if (num.empty())
 		{
-			std::cout << "]" << "\n";
-			return ;
+			break ;
 		}
 		std::cout << ",";
 	}
+	if (num.empty())
+		std::cout << "]" << "\n";
 }
 
 
@@ -77,8 +76,7 @@ void solution()
 
 		p_len = p.length();
 		flag = -1;
-		if(!find_num())
-			continue ;
+		find_num();
 		for (int i = 0; i < p_len; i++)
 		{
 			if (p[i] == 'R')
@@ -86,17 +84,24 @@ void solution()
 			else if (p[i] == 'D' && flag == -1)
 			{
 				if (num.empty())
+				{
+					std::cout << "error\n";
 					break ;
+				}
 				num.pop_front();
 			}
 			else
 			{
 				if (num.empty())
+				{
+					std::cout << "error\n";
 					break ;
+				}
 				num.pop_back();
 			}
+			if (i + 1 == p_len)
+				print();
 		}
-		print();
 	}
 }
 
