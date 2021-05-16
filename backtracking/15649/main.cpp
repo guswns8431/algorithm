@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int n, m;
+int n,m;
 std::vector<int> answer;
 std::vector<int> visited;
 
