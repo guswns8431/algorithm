@@ -4,7 +4,7 @@
 std::string str;
 std::stack<char> s;
 long long answer = 0;
-bool flag;
+bool flag = false;
 
 void input_setting()
 {
@@ -37,7 +37,7 @@ void solution()
 		}
 		else if (str[i] == ')')
 		{
-			if (s.top() != '(' || s.empty())
+			if (s.empty() || s.top() != '(')
 			{
 				flag = true;
 				break ;
@@ -49,7 +49,7 @@ void solution()
 		}
 		else if (str[i] == ']')
 		{
-			if (s.top() != '[' || s.empty())
+			if (s.empty() || s.top() != '[')
 			{
 				flag = true;
 				break ;
