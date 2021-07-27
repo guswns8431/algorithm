@@ -29,16 +29,9 @@ void solution()
     int tmp = 0;
 
     for (int i = 0; i < m; i++)
-    {
         tmp += digit[i] * pow(a, m - 1 - i);
-    }
-    while (1)
+    while (tmp)
     {        
-        if (tmp < b)
-        {
-            answer.push(tmp);
-            return ;
-        }
         answer.push(tmp % b);
         tmp /= b;
     }
