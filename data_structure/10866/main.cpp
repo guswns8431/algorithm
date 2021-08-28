@@ -1,6 +1,7 @@
 #include <iostream>
 #include <deque>
 
+
 int n;
 std::deque<int> d;
 
