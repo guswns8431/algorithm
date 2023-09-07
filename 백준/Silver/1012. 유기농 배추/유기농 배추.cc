@@ -45,12 +45,22 @@ int main(void)
 	int x, y;
 	int answer;
 
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
 	cin >> t;
 	for (int i = 0; i < t; i++)
 	{
 		answer = 0;
-		fill(&board[0][0], &board[51][51], 0);
-		fill(&visited[0][0], &visited[51][51], 0);
+		for (int j = 0; j <= n; j++)
+		{
+			for (int l = 0; l <= m; l++)
+			{
+				board[j][l] = 0;
+				visited[j][l] = 0;
+			}
+		}
 		cin >> m >> n >> k;
 		for (int j = 0; j < k; j++)
 		{
