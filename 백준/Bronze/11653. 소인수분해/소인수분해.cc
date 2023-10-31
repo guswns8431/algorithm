@@ -27,7 +27,6 @@ int main(void)
 				}
 			}
 		}
-		sort(answer.begin(), answer.end());
 		for (unsigned int i = 0; i < answer.size(); i++)
 			cout << answer[i] << "\n";
 	}
