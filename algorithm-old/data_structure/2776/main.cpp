@@ -2,8 +2,7 @@
 #include <unordered_set>
 #include <vector>
 
-int t;
-int n;
+int t, n;
 std::unordered_set<int> n1;
 std::vector<int> n2;
 
