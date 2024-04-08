@@ -1,68 +1,41 @@
 #include <iostream>
 #include <vector>
-#include <queue>
+using namespace std;
 
-int n;
-int m;
-std::vector<std::vector<int> > computer;
-std::vector<bool> visited;
 int answer = 0;
+vector< vector<int> > computer;
+int visited[101];
 
-void input_setting()
-{
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(0);
-    std::cout.tie(0);
+void dfs(int current) {
+	visited[current] = 1;
+	for (int i = 0; i < computer[current].size(); i++) {
+		if (visited[computer[current][i]])
+			continue;
+		answer++;
+		dfs(computer[current][i]);
+	}
 }
 
-void input()
-{
-    int tmp1, tmp2;
+int main(void) {
+	int n;
+	int t;
+	int input1, input2;
 
-    std::cin >> n;
-    std::cin >> m;
-    computer.resize(n + 1);
-    visited.resize(n + 1);
-    for (int i = 1; i <= m; i++)
-    {
-        std::cin >> tmp1 >> tmp2;
-        computer[tmp1].push_back(tmp2);
-        computer[tmp2].push_back(tmp1);
-    }
-}
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
 
-void solution()
-{
-    std::queue<int> q;
-    int next;
+	cin >> n >> t;
 
-    visited[1] = true;
-    q.push(1);
-    while (!q.empty())
-    {
-        next = q.front();
-        q.pop();
-        for (int i = 0; i < computer[next].size(); i++)
-        {
-            if (visited[computer[next][i]])
-                continue ;
-            visited[computer[next][i]] = true;
-            q.push(computer[next][i]);
-            answer++;
-        }
-    }
-}
+	computer.resize(n + 1);
 
-void print()
-{
-    std::cout << answer;
-}
+	for (int i = 0; i < t; i++) {
+		cin >> input1 >> input2;
+		computer[input1].push_back(input2);
+		computer[input2].push_back(input1);
+	}
 
-int main(void)
-{
-    input_setting();
-    input();
-    solution();
-    print();
-    return (0);
+	dfs(1);
+	
+	cout << answer;
 }
