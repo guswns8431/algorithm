@@ -1,4 +1,4 @@
-a, b, c = map(int, input().split())
-answer = a * b / c
+from decimal import Decimal
 
-print(f'{answer:.18f}')
+a, b, c = map(Decimal, input().split())
+print(a * b / c)
