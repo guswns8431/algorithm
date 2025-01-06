@@ -1,6 +1,8 @@
-t = int(input())
+import sys
+
+t = int(sys.stdin.readline())
 for _ in range(t):
-    n, m = map(int, input().split())
+    n, m = map(int, sys.stdin.readline().split())
     answer = 0
     for b in range(1, n):
         for a in range(1, b):
